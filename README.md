@@ -24,8 +24,10 @@ where `input_num` is the zero-indexed input number to be queried.
 
 `ch_offset` is the zero-indexed 'address' of the instance we want to fetch - for example, if our first input is a set of 9 translate/rotate/scale channels then we can grab the translate vector at the current sample with:
 ```vector t = chfetch(0, 0, I);```
+
 rotate with:
 ```vector r = chfetch(0, 1, I);```
+
 and scale with:
 ```vector s = chfetch(0, 2, I);```
 
