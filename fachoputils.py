@@ -2,13 +2,16 @@ import hou
 
 def chopnetOutputNode(chopnet):
     """Returns the chopnode inside the given chopnet that currently has its display flag set"""
+    
     for n in chopnet.children():
         if n.isAudioFlagSet():
             return n
 
 
 def split_cpath(pwd):
-    """Process the constraints_path parameter of the given node. Returns both the chopnode and the name of the first track in the constraint"""
+    """Process the constraints_path parameter of the given node.
+    Returns both the chopnode and the name of the first track in the constraint"""
+    
     cpath = pwd.evalParm("constraints_path")
 
     chopnode = None
@@ -35,6 +38,7 @@ def split_cpath(pwd):
 def get_choptrs(chopnode, startidx, asdict=False):
     """Evaluate the 9 channels on the given chop node starting at the startidx.
     Optionally return the results as a dictionary rather than a list."""
+    
     tracks = [t for t in chopnode.tracks()[startidx:startidx+9]]
 
     choptrs = [t.eval() for t in tracks]
@@ -50,7 +54,8 @@ def get_choptrs(chopnode, startidx, asdict=False):
 
 
 def get_cxform(node):
-    """Get the target node's current constraint transform matrix. The constraint does not need to be active, but the constraints_path must be set"""
+    """Get the target node's current constraint transform matrix.
+    The constraint does not need to be active, but the constraints_path must be set"""
     
     chopnode, tname = split_cpath(node)
 
