@@ -58,9 +58,6 @@ def get_cxform(node):
     The constraint does not need to be active, but the constraints_path must be set"""
     
     chopnode, tname = split_cpath(node)
-
-    print(chopnode)
-    print(tname)
     
     tnames = tuple(t.name() for t in chopnode.tracks())
     start_idx = tnames.index(tname)
